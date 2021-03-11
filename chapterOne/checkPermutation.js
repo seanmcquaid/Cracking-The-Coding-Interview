@@ -1,6 +1,3 @@
-// Check Permutation: Given two strings, write a method to decide if one is a permutation of the
-// other
-
 function checkPermutation(stringOne = '', stringTwo = '') {
   if (stringOne.length !== stringTwo.length) {
     return false;
