@@ -12,5 +12,5 @@ function isUnique(string = '') {
   return true;
 }
 
-console.log(isUnique('hello'));
-console.log(isUnique('dog'));
+console.log(isUnique('hello'), false);
+console.log(isUnique('dog'), true);
