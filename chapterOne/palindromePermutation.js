@@ -2,13 +2,13 @@ const palindromePermutation = (string = '') => {
   const characters = {};
   let amountOfOneChars = 0;
 
-  for (char of string.toLowerCase()) {
+  for (let char of string.toLowerCase()) {
     if (char !== ' ') {
       characters[char] = characters[char] ? characters[char] + 1 : 1;
     }
   }
 
-  for (char in characters) {
+  for (let char in characters) {
     if (characters[char] === 1) {
       amountOfOneChars++;
     }
