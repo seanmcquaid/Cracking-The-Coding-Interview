@@ -33,6 +33,19 @@ function rotateMatrix(matrix = []) {
   }
 }
 
+function rotateMatrix(matrix = []) {
+  const edge = matrix.length - 1;
+
+  for (let i = 0; i < matrix.length / 2; i++) {
+    const rowOne = matrix[i];
+    const rowTwo = matrix[edge - i];
+    matrix[i] = rowTwo;
+    matrix[edge - i] = rowOne;
+  }
+
+  return matrix;
+}
+
 let testMatrix = [
   [1, 2, 3, 4],
   [0, 1, 2, 3],
