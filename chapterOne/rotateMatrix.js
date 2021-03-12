@@ -1,41 +1,6 @@
 function rotateMatrix(matrix = []) {
   const edge = matrix.length - 1;
 
-  function movePixels(row = 0, col = 0) {
-    // starts at m[row][col]
-    // moves to m[col][edge - row]
-    let fromRow;
-    let fromCol;
-    let fromPixel;
-
-    // first transformation
-    let toRow = row; // 0
-    let toCol = col; // 1
-    let toPixel = matrix[row][col];
-
-    // Do rotational transformation 4 times
-    for (let i = 0; i < 4; i++) {
-      fromRow = toRow;
-      fromCol = toCol;
-      toRow = fromCol;
-      toCol = edge - fromRow;
-
-      fromPixel = toPixel;
-      toPixel = matrix[toRow][toCol];
-      matrix[toRow][toCol] = fromPixel;
-    }
-  }
-
-  for (let i = 0; i < matrix.length / 2; i++) {
-    for (var j = i; j < edge - i; j++) {
-      movePixels(i, j);
-    }
-  }
-}
-
-function rotateMatrix(matrix = []) {
-  const edge = matrix.length - 1;
-
   for (let i = 0; i < matrix.length / 2; i++) {
     const rowOne = matrix[i];
     const rowTwo = matrix[edge - i];
