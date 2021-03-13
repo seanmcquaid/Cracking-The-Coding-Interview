@@ -1,34 +1,34 @@
-class LinkedList {
-  constructor(head = null) {
-    this.head = head;
+function removeDups(linkedList = new LinkedList()) {
+  const values = [];
+  let currentNode = linkedList.head;
+
+  while (currentNode.next !== null) {
+    if (!values.includes(currentNode.value)) {
+      values.push(currentNode.value);
+    }
+    currentNode = currentNode.next;
   }
 
-  append(value) {
-    const end = new ListNode(value);
-    let currentNode = this.head;
-
-    if (currentNode === null) {
-      this.head = end;
-      return;
-    }
-
-    while (currentNode.next !== null) {
-      currentNode = currentNode.next;
-    }
-
-    currentNode.next = end;
+  // adds potential value for the last node
+  if (!values.includes(currentNode.value)) {
+    values.push(currentNode.value);
   }
+
+  const newLinkedList = new LinkedList();
+
+  for (let i = 0; i < values.length; i++) {
+    newLinkedList.append(values[i]);
+  }
+
+  return newLinkedList;
 }
 
-class ListNode {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+const LinkedList = require('./utils/LinkedList');
 
 const linkedList = new LinkedList();
 linkedList.append('a');
 linkedList.append('b');
+linkedList.append('b');
+linkedList.append('c');
 
-console.log(linkedList);
+removeDups(linkedList);
