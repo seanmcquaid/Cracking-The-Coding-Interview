@@ -22,12 +22,10 @@ class LinkedList {
   printList() {
     let currentNode = this.head;
 
-    while (currentNode.next !== null) {
+    while (currentNode !== null) {
       console.log(currentNode.value);
       currentNode = currentNode.next;
     }
-
-    console.log(currentNode.value);
   }
 }
 
