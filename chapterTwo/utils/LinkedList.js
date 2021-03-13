@@ -27,6 +27,18 @@ class LinkedList {
       currentNode = currentNode.next;
     }
   }
+
+  getLength() {
+    let length = 0;
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      length++;
+      currentNode = currentNode.next;
+    }
+
+    return length;
+  }
 }
 
 class ListNode {
