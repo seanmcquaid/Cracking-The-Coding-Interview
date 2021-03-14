@@ -3,6 +3,24 @@ class LinkedList {
     this.head = head;
   }
 
+  delete(position) {
+    let i = 1;
+    let searchedNode = this.head;
+    let prevNode = this.head;
+
+    while (i !== position) {
+      if (i === position - 1) {
+        prevNode = searchedNode;
+      }
+      searchedNode = searchedNode.next;
+      i++;
+    }
+
+    prevNode.next = searchedNode.next;
+
+    this.printList();
+  }
+
   append(value) {
     const end = new ListNode(value);
     let currentNode = this.head;
