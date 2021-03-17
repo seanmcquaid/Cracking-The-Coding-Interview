@@ -23,7 +23,7 @@
 - [x] 2.5 - Sum Lists
 - [x] 2.6 - Palindrome
 - [x] 2.7 - Intersection
-- [ ] 2.8 - Loop Detection
+- [x] 2.8 - Loop Detection
 
 #### Chapter 3
 
