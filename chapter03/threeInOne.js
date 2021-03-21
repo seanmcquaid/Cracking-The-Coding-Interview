@@ -21,7 +21,9 @@ class ThreeStacks {
     this.stackThreeEnd--;
   }
 
-  peekStackOne() {}
+  peekStackOne() {
+    return this.stackOneStart === this.stackTwoStart ? null : this.stack[0];
+  }
 
   pushStackTwo(value) {
     this.stack.splice(this.stackThreeStart, 0, value);
@@ -35,7 +37,11 @@ class ThreeStacks {
     this.stackThreeEnd--;
   }
 
-  peekStackTwo() {}
+  peekStackTwo() {
+    return this.stackTwoStart === this.stackThreeStart
+      ? null
+      : this.stack[this.stackTwoStart];
+  }
 
   pushStackThree(value) {
     this.stack.push(value);
@@ -47,7 +53,11 @@ class ThreeStacks {
     this.stackThreeEnd--;
   }
 
-  peekStackThree() {}
+  peekStackThree() {
+    return this.stackThreeStart === this.stackThreeEnd
+      ? null
+      : this.stack[this.stackThreeStart];
+  }
 }
 
 const threeStacks = new ThreeStacks();
@@ -64,3 +74,7 @@ threeStacks.popStackTwo();
 threeStacks.popStackThree();
 
 console.log(threeStacks.stack);
+
+console.log(threeStacks.peekStackOne());
+console.log(threeStacks.peekStackTwo());
+console.log(threeStacks.peekStackThree());
