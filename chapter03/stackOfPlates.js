@@ -13,6 +13,19 @@ class StackOfPlates {
       this.stack[this.amountOfStacks - 1].push(value);
     }
   }
+
+  pop() {
+    if (this.stack[this.amountOfStacks - 1].length === 1) {
+      this.amountOfStacks--;
+      return this.stack.pop();
+    } else {
+      return this.stack[this.amountOfStacks - 1].pop();
+    }
+  }
+
+  popAt(index) {
+    return this.stack[index].pop();
+  }
 }
 
 const stackOfPlates = new StackOfPlates(2);
