@@ -14,7 +14,12 @@ class ThreeStacks {
     this.stackThreeEnd++;
   }
 
-  popStackOne() {}
+  popStackOne() {
+    this.stack.splice(this.stackTwoStart - 1, 1);
+    this.stackTwoStart--;
+    this.stackThreeStart--;
+    this.stackThreeEnd--;
+  }
 
   peekStackOne() {}
 
@@ -24,7 +29,11 @@ class ThreeStacks {
     this.stackThreeEnd++;
   }
 
-  popStackTwo() {}
+  popStackTwo() {
+    this.stack.splice(this.stackThreeStart - 1, 1);
+    this.stackThreeStart--;
+    this.stackThreeEnd--;
+  }
 
   peekStackTwo() {}
 
@@ -33,7 +42,10 @@ class ThreeStacks {
     this.stackThreeEnd++;
   }
 
-  popStackThree() {}
+  popStackThree() {
+    this.stack.pop();
+    this.stackThreeEnd--;
+  }
 
   peekStackThree() {}
 }
@@ -46,5 +58,9 @@ threeStacks.pushStackTwo(2);
 threeStacks.pushStackTwo(4);
 threeStacks.pushStackThree(8);
 threeStacks.pushStackThree(5);
+
+threeStacks.popStackOne();
+threeStacks.popStackTwo();
+threeStacks.popStackThree();
 
 console.log(threeStacks.stack);
