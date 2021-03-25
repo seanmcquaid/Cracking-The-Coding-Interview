@@ -31,7 +31,7 @@
 - [x] 3.2 - Stack Min
 - [x] 3.3 - Stack of Plates
 - [x] 3.4 - Queue via Stacks
-- [ ] 3.5 - Sort Stack
+- [x] 3.5 - Sort Stack
 - [ ] 3.6 - Animal Shelter
 
 #### Chapter 4
