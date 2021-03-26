@@ -2,43 +2,34 @@ const LinkedList = require('./LinkedList');
 
 class Queue {
   constructor() {
-    this.front = null;
-    this.back = null;
+    this.front = [];
+    this.back = [];
   }
 
   add(value) {
-    const node = new LinkedList(value);
-    if (this.front === null) {
-      this.front = node;
-      this.back = node;
+    if (this.front.length === 0) {
+      this.front.unshift(value);
     } else {
-      const prevBack = this.back;
-      this.back = node;
-      prevBack.next = this.back;
+      this.back.unshift(value);
     }
   }
 
   remove() {
-    const removed = this.front;
-    if (this.front === this.back) {
-      this.front = null;
-      this.back = null;
-    } else {
-      if (this.front === null) {
-        return null;
-      }
-      this.front = this.front.next;
-      this.back = this.back.next;
+    if (this.front.length === 0) {
+      return null;
     }
-    return removed !== null ? removed.value : null;
+    const removedValue = this.front.shift();
+    const firstValueFromBack = this.back.shift();
+    this.front.unshift(firstValueFromBack);
+    return removedValue;
   }
 
   peek() {
-    return this.front !== null ? this.front.value : null;
+    return this.front[0] ? this.front[0] : null;
   }
 
   isEmpty() {
-    return (this.front = null);
+    return this.front.length === 0;
   }
 }
 

@@ -18,16 +18,35 @@ class AnimalShelter {
   }
 
   dequeueAny() {
-    if (this.allAnimalsQueue.peek() === this.dogQueue.peek()) {
+    if (this.allAnimalsQueue.peek().type === 'dog') {
       this.dogQueue.remove();
-    } else if (this.allAnimalsQueue.peek() === this.catQueue.peek()) {
+    } else {
       this.catQueue.remove();
     }
 
     return this.allAnimalsQueue.remove();
   }
 
-  dequeueDog() {}
+  dequeueDog() {
+    this.dogQueue.remove();
+    if (this.allAnimalsQueue.peek().type === 'dog') {
+      return this.allAnimalsQueue.remove();
+    } else {
+      const tempQueue = new Queue();
+      let isFirstDogFound = true;
+      console.log(this.allAnimalsQueue);
+      while (!this.allAnimalsQueue.isEmpty()) {
+        if (this.allAnimalsQueue.peek().type === 'dog' && isFirstDogFound) {
+          console.log(tempQueue);
+          break;
+        } else {
+          tempQueue.add(this.allAnimalsQueue.remove());
+          break;
+        }
+      }
+      console.log(tempQueue);
+    }
+  }
 
   dequeueCat() {}
 }
@@ -35,9 +54,7 @@ class AnimalShelter {
 const animalShelter = new AnimalShelter();
 animalShelter.enqueue({ type: 'cat', name: 'peanuts' });
 animalShelter.enqueue({ type: 'dog', name: 'machi' });
-console.log(animalShelter.allAnimalsQueue);
 animalShelter.dequeueDog();
-console.log(animalShelter.allAnimalsQueue);
 
 // console.log(animalShelter.allAnimalsQueue);
 // animalShelter.enqueue({ type: 'dog', name: 'daisy' });
