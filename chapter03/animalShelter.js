@@ -33,18 +33,24 @@ class AnimalShelter {
       return this.allAnimalsQueue.remove();
     } else {
       const tempQueue = new Queue();
-      let isFirstDogFound = true;
-      console.log(this.allAnimalsQueue);
+      let isFirstDogFound = false;
+      let firstDogFound = null;
       while (!this.allAnimalsQueue.isEmpty()) {
-        if (this.allAnimalsQueue.peek().type === 'dog' && isFirstDogFound) {
-          console.log(tempQueue);
-          break;
+        if (this.allAnimalsQueue.peek().type === 'dog' && !isFirstDogFound) {
+          this.allAnimalsQueue.remove();
+          firstDogFound = this.allAnimalsQueue.peek();
+          isFirstDogFound = true;
         } else {
-          tempQueue.add(this.allAnimalsQueue.remove());
-          break;
+          const val = this.allAnimalsQueue.remove();
+          tempQueue.add(val);
         }
       }
-      console.log(tempQueue);
+
+      while (!tempQueue.isEmpty()) {
+        this.allAnimalsQueue.add(tempQueue.remove());
+      }
+
+      return firstDogFound;
     }
   }
 

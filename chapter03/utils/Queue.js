@@ -19,8 +19,10 @@ class Queue {
       return null;
     }
     const removedValue = this.front.shift();
-    const firstValueFromBack = this.back.shift();
-    this.front.unshift(firstValueFromBack);
+    if (this.back.length !== 0) {
+      const firstValueFromBack = this.back.shift();
+      this.front.unshift(firstValueFromBack);
+    }
     return removedValue;
   }
 
