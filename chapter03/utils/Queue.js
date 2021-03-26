@@ -4,7 +4,17 @@ class Queue {
     this.back = null;
   }
 
-  enqueue() {}
+  add(value) {}
+
+  remove() {}
+
+  peek() {
+    return this.front !== null ? this.front.value : null;
+  }
+
+  isEmpty() {
+    return (this.front = null);
+  }
 }
 
 module.exports = Queue;
