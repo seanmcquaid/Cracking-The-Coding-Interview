@@ -1,3 +1,5 @@
+const LinkedList = require('./LinkedList');
+
 class Queue {
   constructor() {
     this.front = null;
