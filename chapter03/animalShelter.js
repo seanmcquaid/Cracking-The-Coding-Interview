@@ -54,7 +54,32 @@ class AnimalShelter {
     }
   }
 
-  dequeueCat() {}
+  dequeueCat() {
+    this.catQueue.remove();
+    if (this.allAnimalsQueue.peek().type === 'cat') {
+      return this.allAnimalsQueue.remove();
+    } else {
+      const tempQueue = new Queue();
+      let isFirstCatFound = false;
+      let firstCatFound = null;
+      while (!this.allAnimalsQueue.isEmpty()) {
+        if (this.allAnimalsQueue.peek().type === 'cat' && !isFirstCatFound) {
+          this.allAnimalsQueue.remove();
+          firstCatFound = this.allAnimalsQueue.peek();
+          isFirstCatFound = true;
+        } else {
+          const val = this.allAnimalsQueue.remove();
+          tempQueue.add(val);
+        }
+      }
+
+      while (!tempQueue.isEmpty()) {
+        this.allAnimalsQueue.add(tempQueue.remove());
+      }
+
+      return firstCatFound;
+    }
+  }
 }
 
 const animalShelter = new AnimalShelter();
