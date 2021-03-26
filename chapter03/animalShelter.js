@@ -10,7 +10,7 @@ class AnimalShelter {
   enqueue(animal) {
     if (animal.type === 'dog') {
       this.dogQueue.add(animal);
-    } else if (animal.type === 'cat') {
+    } else {
       this.catQueue.add(animal);
     }
 
@@ -27,32 +27,7 @@ class AnimalShelter {
     return this.allAnimalsQueue.remove();
   }
 
-  dequeueDog() {
-    if (this.allAnimalsQueue.peek().type === 'dog') {
-      this.dogQueue.remove();
-      return this.allAnimalsQueue.remove();
-    } else {
-      const tempQueue = new Queue();
-      let isFirstDogFound = true;
-      let removedDog;
-      while (!this.allAnimalsQueue.isEmpty()) {
-        console.log(this.allAnimalsQueue);
-
-        if (this.allAnimalsQueue.peek().type === 'dog' && isFirstDogFound) {
-          isFirstDogFound = false;
-          removedDog = this.allAnimalsQueue.peek();
-        } else {
-          tempQueue.add(this.allAnimalsQueue.remove());
-        }
-      }
-
-      while (!tempQueue.isEmpty()) {
-        this.allAnimalsQueue.add(tempQueue.remove());
-      }
-
-      return removedDog;
-    }
-  }
+  dequeueDog() {}
 
   dequeueCat() {}
 }
@@ -60,12 +35,14 @@ class AnimalShelter {
 const animalShelter = new AnimalShelter();
 animalShelter.enqueue({ type: 'cat', name: 'peanuts' });
 animalShelter.enqueue({ type: 'dog', name: 'machi' });
+console.log(animalShelter.allAnimalsQueue);
 animalShelter.dequeueDog();
 console.log(animalShelter.allAnimalsQueue);
+
+// console.log(animalShelter.allAnimalsQueue);
 // animalShelter.enqueue({ type: 'dog', name: 'daisy' });
 // animalShelter.enqueue({ type: 'dog', name: 'miso' });
 // animalShelter.enqueue({ type: 'cat', name: 'dada' });
 // animalShelter.enqueue({ type: 'cat', name: 'xiaoxiao' });
 
-animalShelter.dequeueDog();
 // console.log(animalShelter.allAnimalsQueue);

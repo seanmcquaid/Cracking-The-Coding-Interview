@@ -24,7 +24,11 @@ class Queue {
       this.front = null;
       this.back = null;
     } else {
+      if (this.front === null) {
+        return null;
+      }
       this.front = this.front.next;
+      this.back = this.back.next;
     }
     return removed !== null ? removed.value : null;
   }
