@@ -24,9 +24,9 @@ class BinarySearchTree {
   }
 
   printLevelOrder() {
-    const level = [];
-    const q = new Queue();
-    const nextq = new Queue();
+    let level = [];
+    let q = new Queue();
+    let nextq = new Queue();
     let currNode;
 
     q.add(this);
