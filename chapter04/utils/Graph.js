@@ -63,7 +63,7 @@ class Graph {
   }
 
   findNodeWithNoChildren() {
-    for (var node in this.nodes) {
+    for (const node in this.nodes) {
       if (Object.keys(this.nodes[node]).length === 0) {
         return node;
       }
