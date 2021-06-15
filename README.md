@@ -43,7 +43,7 @@
 - [x] 4.5 - Validate BST
 - [x] 4.6 - Successor
 - [x] 4.7 - Build Order
-- [ ] 4.8 - First Common Ancestor
+- [x] 4.8 - First Common Ancestor
 - [ ] 4.9 - BST Sequences
 - [ ] 4.10 - Check Subtree
 - [ ] 4.11 - Random Node
