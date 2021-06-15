@@ -44,7 +44,7 @@
 - [x] 4.6 - Successor
 - [x] 4.7 - Build Order
 - [x] 4.8 - First Common Ancestor
-- [ ] 4.9 - BST Sequences
+- [x] 4.9 - BST Sequences
 - [ ] 4.10 - Check Subtree
 - [ ] 4.11 - Random Node
 - [ ] 4.12 - Paths with Sum
