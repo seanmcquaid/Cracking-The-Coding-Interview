@@ -22,3 +22,15 @@ class BinaryTree {
     }
   }
 }
+
+const firstCommonAncestor = (node1, node2) => {
+  let currNode = node1;
+  while (!currNode.isAncestor(node2)) {
+    if (currNode === null) {
+      throw Error;
+    } else {
+      currNode = currNode.parent;
+    }
+  }
+  return currNode.value;
+};
