@@ -69,6 +69,45 @@ class BinarySearchTree {
       }
     }
   }
+
+  count() {
+    const q = new Queue();
+    q.add(this);
+    let node;
+    let count = 0;
+    while (!q.isEmpty()) {
+      node = q.remove();
+      count++;
+      if (node.left !== null) {
+        q.add(node.left);
+      }
+      if (node.right !== null) {
+        q.add(node.right);
+      }
+    }
+    return count;
+  }
+
+  iterateToNumber(number) {
+    const q = new Queue();
+    q.add(this);
+    let node;
+    let count = 0;
+    while (!q.isEmpty()) {
+      node = q.remove();
+      count++;
+      if (count === number) {
+        return node;
+      }
+      if (node.left !== null) {
+        q.add(node.left);
+      }
+      if (node.right !== null) {
+        q.add(node.right);
+      }
+    }
+    return undefined;
+  }
 }
 
 module.exports = BinarySearchTree;
