@@ -8,7 +8,9 @@ class BinarySearchTree {
   }
 
   insert(value) {
-    if (value < this.value) {
+    if (this.value === undefined) {
+      this.value = value;
+    } else if (value < this.value) {
       if (this.left === null) {
         this.left = new BinarySearchTree(value);
       } else {
@@ -44,6 +46,26 @@ class BinarySearchTree {
         level = [];
         q = nextq;
         nextq = new Queue();
+      }
+    }
+  }
+
+  find(value) {
+    if (value === this.value) {
+      return this;
+    } else {
+      if (value < this.value) {
+        if (this.left === null) {
+          return null;
+        } else {
+          this.left.find(value);
+        }
+      } else {
+        if (this.right === null) {
+          return null;
+        } else {
+          this.right.find(value);
+        }
       }
     }
   }
