@@ -108,6 +108,12 @@ class BinarySearchTree {
     }
     return undefined;
   }
+
+  getRandomNode() {
+    const count = this.count();
+    const randomNumber = Math.floor(Math.random() * count) + 1;
+    return this.iterateToN(randomNumber);
+  }
 }
 
 module.exports = BinarySearchTree;
