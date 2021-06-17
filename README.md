@@ -46,7 +46,7 @@
 - [x] 4.8 - First Common Ancestor
 - [x] 4.9 - BST Sequences
 - [x] 4.10 - Check Subtree
-- [ ] 4.11 - Random Node
+- [x] 4.11 - Random Node
 - [ ] 4.12 - Paths with Sum
 
 #### Chapter 5
