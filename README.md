@@ -47,7 +47,7 @@
 - [x] 4.9 - BST Sequences
 - [x] 4.10 - Check Subtree
 - [x] 4.11 - Random Node
-- [ ] 4.12 - Paths with Sum
+- [x] 4.12 - Paths with Sum
 
 #### Chapter 5
 
